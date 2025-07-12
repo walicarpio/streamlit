@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -43,6 +42,7 @@ centros = st.sidebar.multiselect("Centro Saval", df["Centro Saval"].unique())
 clientes = st.sidebar.multiselect("Cliente", df["Cliente"].unique())
 servicios = st.sidebar.multiselect("Servicio", df["Servicio"].unique())
 especialidades = st.sidebar.multiselect("Especialidad", df["Especialidad"].unique())
+representante = st.sidebar.multiselect("Representante", df["Representante"].unique())
 
 df_filtrado = df[
     (df["Fecha Servicio"] >= pd.to_datetime(rango_fecha[0])) &
@@ -57,6 +57,8 @@ if servicios:
     df_filtrado = df_filtrado[df_filtrado["Servicio"].isin(servicios)]
 if especialidades:
     df_filtrado = df_filtrado[df_filtrado["Especialidad"].isin(especialidades)]
+if representante:
+    df_filtrado = df_filtrado[df_filtrado["Representante"].isin(representante)]
 
 st.title("Dashboard Interactivo SAVAL")
 
