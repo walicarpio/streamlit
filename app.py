@@ -90,8 +90,5 @@ st.download_button("📥 Descargar tabla filtrada",
                    file_name="resultados_filtrados.csv",
                    mime="text/csv")
 
-img_bytes = fig1.to_image(format="png")
-st.download_button("📤 Exportar gráfico de servicios (PNG)", 
-                   data=img_bytes,
-                   file_name="grafico_servicio.png",
-                   mime="image/png")
+with st.expander("Exportar gráfico"):
+    st.markdown("Haz clic derecho sobre el gráfico y selecciona **'Guardar como imagen'**.")
